@@ -1,0 +1,27 @@
+{
+  "name": "s2wb50gundapuneni",
+  "version": "0.0.0",
+  "description": "Creating a new pacakage.json for second time from CLI",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.2.10",
+    "morgan": "~1.9.1",
+    "pug": "^3.0.2"
+  },
+  "keywords": [
+    "Pug",
+    "Heroku",
+    "Web Apps Assignment 10"
+  ],
+  "author": "Kiran Kumar Gundapuneni",
+  "license": "ISC",
+  "main": "app.js"
+}
