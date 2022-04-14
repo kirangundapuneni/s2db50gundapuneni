@@ -1,6 +1,6 @@
 {
-  "name": "s2wb50gundapuneni",
-  "version": "0.0.0",
+  "name": "s2db50gundapuneni",
+  "version": "0.0.1",
   "description": "Creating a new pacakage.json for second time from CLI",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
   "keywords": [
     "Pug",
     "Heroku",
-    "Web Apps Assignment 10"
+    "Web Apps Assignment 11"
   ],
   "author": "Kiran Kumar Gundapuneni",
   "license": "ISC",
