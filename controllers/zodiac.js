@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-13 21:20:40
+ * @Last Modified time: 2022-04-13 22:41:52
  */
 var Zodiac = require('../models/zodiac');
 // List of all zodiac signs
@@ -18,7 +18,7 @@ exports.zodiac_list = async function (req, res) {
 };
 // for a specific Zodiac sign.
 exports.zodiac_info = function (req, res) {
-    res.send('NOT IMPLEMENTED: Car detail: ' + req.params.id);
+    res.send('NOT IMPLEMENTED: zodiac detail: ' + req.params.id);
 };
 // Handle Zodiac create on POST.
 exports.zodiac_create_post = async function (req, res) {
