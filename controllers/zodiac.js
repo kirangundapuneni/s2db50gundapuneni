@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 20:39:57
+ * @Last Modified time: 2022-04-20 22:22:33
  */
 var Zodiac = require('../models/zodiac');
 // List of all zodiac signs
@@ -114,6 +114,20 @@ exports.zodiac_create_Page = function (req, res) {
     console.log("create view")
     try {
         res.render('zodiaccreate', { title: 'Zodiac Create' });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle building the view for updating a car.
+// query provides the id
+exports.zodiac_update_Page = async function (req, res) {
+    console.log("update view for item " + req.query.id)
+    try {
+        let result = await Zodiac.findById(req.query.id)
+        res.render('zodiacupdate', { title: 'Zodiac Update', toShow: result });
     }
     catch (err) {
         res.status(500)

@@ -1,0 +1,43 @@
+extends layout
+block content
+  h1= title
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let zodiacid = toShow._id
+    - let zodiac_name = toShow.zodiac_name
+    - let zodiac_meaning = toShow.zodiac_meaning
+    - let lucky_number = toShow.lucky_number
+    div.row(class='mb-2')
+      div.mr-1 ID is
+      div #{zodiacid}
+    - let actionid = "/resource/zodiacs/" + zodiacid 
+    form(id='ZodiacForm', action= actionid, method="PUT")
+      div.form-group
+        label.zodiacAttr(for='zodiac_name') Zodiac Name
+        input#zodiac_name(type='text' name='zodiac_name', value= zodiac_name )
+      div.form-group
+        label.zodiacAttr(for='zodiac_meaning') Zodiac Meaning
+        input#zodiac_meaning(type='text' name='zodiac_meaning', value= zodiac_meaning )
+      div.form-group
+        label.zodiacAttr(for='lucky_number') Lucky Number 
+        input#lucky_number(type='number' name='lucky_number', value= zodiac_meaning )
+      input(type="submit")
+
+  script.
+    document.forms['ZodiacForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user that form is being submitted
+      fetch(event.target.action, {
+        method: 'PUT',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Update succeded")
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+      alert("Update failed " + error )
+      });
+    });
