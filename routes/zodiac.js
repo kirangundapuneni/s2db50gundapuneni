@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-08 11:25:29
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 22:41:36
+ * @Last Modified time: 2022-04-20 22:50:15
  */
 var express = require('express');
 var router = express.Router();
@@ -16,5 +16,7 @@ router.get('/detail', zodiac_controller.zodiac_view_one_Page);
 router.get('/update', zodiac_controller.zodiac_update_Page);
 /* GET create zodiac page */
 router.get('/create', zodiac_controller.zodiac_create_Page);
+/* GET delete car page */
+router.get('/delete', zodiac_controller.zodiac_delete_Page);
 
 module.exports = router;

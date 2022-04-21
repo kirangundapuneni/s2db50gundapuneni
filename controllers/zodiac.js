@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 22:22:33
+ * @Last Modified time: 2022-04-20 22:51:20
  */
 var Zodiac = require('../models/zodiac');
 // List of all zodiac signs
@@ -128,6 +128,19 @@ exports.zodiac_update_Page = async function (req, res) {
     try {
         let result = await Zodiac.findById(req.query.id)
         res.render('zodiacupdate', { title: 'Zodiac Update', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle a delete one view with id from query
+exports.zodiac_delete_Page = async function (req, res) {
+    console.log("Delete view for id " + req.query.id)
+    try {
+        result = await Zodiac.findById(req.query.id)
+        res.render('zodiacdelete', {title: 'Zodiac Delete', toShow: result});
     }
     catch (err) {
         res.status(500)
