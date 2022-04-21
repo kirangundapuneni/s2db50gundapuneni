@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-03-31 23:16:48
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-13 19:05:25
+ * @Last Modified time: 2022-04-21 02:57:00
  */
 var createError = require('http-errors');
 var express = require('express');
@@ -13,13 +13,12 @@ var logger = require('morgan');
 const connectionString = process.env.MONGO_CON;
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
-{useNewUrlParser: true,
-useUnifiedTopology: true});
+{useNewUrlParser: true, useUnifiedTopology: true});
 
 var Zodiac = require("./models/zodiac");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var zodiacRouter = require('./routes/zodiac');
+var zodiacsRouter = require('./routes/zodiacs');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
@@ -37,7 +36,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/zodiac', zodiacRouter);
+app.use('/zodiacs', zodiacsRouter);
 app.use('/users', usersRouter);
 app.use('/addmods', addmodsRouter);
 app.use('/selector', selectorRouter);

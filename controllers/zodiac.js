@@ -2,10 +2,10 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 22:51:20
+ * @Last Modified time: 2022-04-21 02:55:06
  */
 var Zodiac = require('../models/zodiac');
-// List of all zodiac signs
+// List of all zodiacs signs
 exports.zodiac_list = async function (req, res) {
     try {
         theZodiacSigns = await Zodiac.find();

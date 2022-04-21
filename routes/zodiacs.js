@@ -2,10 +2,10 @@
  * @Author: Your name
  * @Date:   2022-04-08 11:25:29
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-21 01:53:54
+ * @Last Modified time: 2022-04-21 02:28:13
  */
 var express = require('express');
-const zodiac_controller= require('../controllers/Zodiac');
+const zodiac_controller= require('../controllers/zodiac');
 var router = express.Router();
 
 /* GET Zodiac */

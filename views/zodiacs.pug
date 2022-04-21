@@ -8,8 +8,8 @@ block content
     - let results=[{zodiac_name:"Leo",zodiac_meaning:"Lion",lucky_number:"34"},{zodiac_name:"Gemini",zodiac_meaning:"Dioscuri",lucky_number:"18"},{zodiac_name:"Aquarius",zodiac_meaning:"water-carrier",lucky_number:"23"}]
     div(class="container-fluid")
         div(class="row")
-            each zodiac , index in results
-                div(class="col-sm-2" onclick=`buy(${index+1})`) #{zodiac.zodiac_name} - #{zodiac.zodiac_meaning} - #{zodiac.lucky_number}
+            each zodiacs , index in results
+                div(class="col-sm-2" onclick=`buy(${index+1})`) #{zodiacs.zodiac_name} - #{zodiacs.zodiac_meaning} - #{zodiacs.lucky_number}
 
     script.
       function buy(index){
