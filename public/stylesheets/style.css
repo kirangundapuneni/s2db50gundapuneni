@@ -1,8 +1,8 @@
 /**
  * @Author: Your name
- * @Date:   2022-04-08 11:25:29
+ * @Date:   2022-04-20 22:06:14
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 18:09:03
+ * @Last Modified time: 2022-04-20 23:27:47
  */
 body {
   padding: 50px;
@@ -14,8 +14,14 @@ a {
 }
 
 .zodiacAttr {
-  background-color: rgb(248, 140, 140);
+  background-color: aquamarine;
   width: 120px;
-  color:blue;
-  font-family: Arial, Helvetica, Sans-serif;
- }
+}
+
+.zodiacAttr:hover {
+  text-shadow:3px 3px 6px green;
+  font-style:oblique;
+  background-color: whitesmoke;
+  font-family:'Courier New', Courier, monospace;
+  box-shadow: 10px 5px 5px lightgreen;
+}
