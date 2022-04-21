@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-20 20:07:41
+ * @Last Modified time: 2022-04-20 20:39:57
  */
 var Zodiac = require('../models/zodiac');
 // List of all zodiac signs
@@ -100,6 +100,20 @@ exports.zodiac_view_one_Page = async function (req, res) {
         result = await Zodiac.findById(req.query.id)
         res.render('zodiacdetail',
             { title: 'Zodiac Detail', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
+// Handle building the view for creating a zodiac.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.zodiac_create_Page = function (req, res) {
+    console.log("create view")
+    try {
+        res.render('zodiaccreate', { title: 'Zodiac Create' });
     }
     catch (err) {
         res.status(500)
