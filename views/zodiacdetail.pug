@@ -1,0 +1,24 @@
+extends layout
+
+
+block content
+ h1= title
+
+ - let zodiacid = toShow._id
+ - let zodiac_name = toShow.zodiac_name
+ - let zodiac_meaning = toShow.zodiac_meaning
+ - let lucky_number = toShow.lucky_number
+ div
+  div.row
+   div(class='zodiacAttr mr-3') Zodiac ID is:
+   div #{zodiacid}
+  div.row
+   div(class='zodiacAttr mr-3') Zodiac Name is:
+   div #{zodiac_name}
+  div.row
+   div(class='zodiacAttr mr-3') Zodiac Meaning  is:
+   div #{zodiac_meaning}
+  div.row
+   div(class='zodiacAttr mr-3') Zodiac Lucky Number is:
+   div #{lucky_number}
+ 

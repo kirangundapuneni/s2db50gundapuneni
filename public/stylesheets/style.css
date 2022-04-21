@@ -1,3 +1,9 @@
+/**
+ * @Author: Your name
+ * @Date:   2022-04-08 11:25:29
+ * @Last Modified by:   Your name
+ * @Last Modified time: 2022-04-20 18:09:03
+ */
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -6,3 +12,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+.zodiacAttr {
+  background-color: rgb(248, 140, 140);
+  width: 120px;
+  color:blue;
+  font-family: Arial, Helvetica, Sans-serif;
+ }

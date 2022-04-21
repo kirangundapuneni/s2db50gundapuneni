@@ -1,15 +1,18 @@
 /**
  * @Author: Your name
- * @Date:   2022-04-06 15:48:25
+ * @Date:   2022-04-08 11:25:29
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-13 21:17:53
+ * @Last Modified time: 2022-04-20 19:39:03
  */
 var express = require('express');
 var router = express.Router();
+const zodiac_controller= require('../controllers/Zodiac');
 
-/* GET home page. */
+/* GET Zodiac */
 router.get('/', function(req, res, next) {
-  res.render('zodiac', { title: 'Search Results by zodiac signs' });
+router.get('/detail', zodiac_controller.zodiac_view_one_Page);
+/* GET create car page */
+res.render('Zodiac', { title: 'Search Results Zodiac' });
 });
 
 module.exports = router;

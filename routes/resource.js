@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:56:34
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-15 10:43:25
+ * @Last Modified time: 2022-04-20 20:29:45
  */
 var express = require('express');
 var router = express.Router();
@@ -15,7 +15,7 @@ var zodiac_controller = require('../controllers/zodiac');
 router.get('/', api_controller.api);
 
 
-/// car ROUTES ///
+/// Zodiac ROUTES ///
 // POST request for creating a zodiac.
 router.post('/zodiacs', zodiac_controller.zodiac_create_post);
 // DELETE request to delete zodiac.

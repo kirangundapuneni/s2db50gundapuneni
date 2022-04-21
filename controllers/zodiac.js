@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2022-04-13 18:42:11
  * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-15 11:22:01
+ * @Last Modified time: 2022-04-20 20:07:41
  */
 var Zodiac = require('../models/zodiac');
 // List of all zodiac signs
@@ -35,29 +35,37 @@ exports.zodiac_create_post = async function (req, res) {
         res.send(`{"error": ${err}}`);
     }
 };
-// Handle Zodiac delete form on DELETE.
-exports.zodiac_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: Zodiac delete DELETE ' + req.params.id);
+// Handle Zodiac delete on DELETE.
+exports.zodiac_delete = async function (req, res) {
+    console.log("delete " + req.params.id)
+    try {
+        result = await Zodiac.findByIdAndDelete(req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
 };
 // Handle Zodiac update form on PUT.
-exports.zodiac_update_put = async function(req, res) {
-console.log(`update on id ${req.params.id} with body
+exports.zodiac_update_put = async function (req, res) {
+    console.log(`update on id ${req.params.id} with body
 ${JSON.stringify(req.body)}`)
-try {
-let toUpdate = await Zodiac.findById( req.params.id)
-// Do updates of properties
-if(req.body.zodiac_name)
-toUpdate.zodiac_name = req.body.zodiac_name;
-if(req.body.zodiac_meaning) toUpdate.zodiac_meaning = req.body.zodiac_meaning;
-if(req.body.lucky_number) toUpdate.lucky_number = req.body.lucky_number;
-let result = await toUpdate.save();
-console.log("Sucess " + result)
-res.send(result)
-} catch (err) {
-res.status(500)
-res.send(`{"error": ${err}: Update for id ${req.params.id}
+    try {
+        let toUpdate = await Zodiac.findById(req.params.id)
+        // Do updates of properties
+        if (req.body.zodiac_name)
+            toUpdate.zodiac_name = req.body.zodiac_name;
+        if (req.body.zodiac_meaning) toUpdate.zodiac_meaning = req.body.zodiac_meaning;
+        if (req.body.lucky_number) toUpdate.lucky_number = req.body.lucky_number;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id}
 failed`);
-}
+    }
 };
 
 // VIEWS
@@ -74,13 +82,28 @@ exports.zodiac_view_all = async function (req, res) {
 };
 
 // for a specific Zodiac.
-exports.zodiac_info = async function(req, res) {
+exports.zodiac_info = async function (req, res) {
     console.log("info" + req.params.id);
     try {
-    result = await Zodiac.findById(req.params.id);
-    res.send(result);
+        result = await Zodiac.findById(req.params.id);
+        res.send(result);
     } catch (error) {
-    res.status(500);
-    res.send(`{"error": document for id ${req.params.id} not found`);
+        res.status(500);
+        res.send(`{"error": document for id ${req.params.id} not found`);
     }
-    };
+};
+
+// Handle a show one view with id specified by query
+exports.zodiac_view_one_Page = async function (req, res) {
+    console.log("single view for id " + req.query.id)
+    try {
+        result = await Zodiac.findById(req.query.id)
+        res.render('zodiacdetail',
+            { title: 'Zodiac Detail', toShow: result });
+    }
+    catch (err) {
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
+
