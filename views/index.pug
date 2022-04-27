@@ -1,26 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title} Kiran Kumar Gundapuneni
-  p Added a paragraph to check if refresh works
-  br
-  - var btnType = 'success'
-  - var btnSize = 'xl'
-  button(type='button' onclick="moreClaps()" class='btn btn-' + btnType + ' btn-' + btnSize) press me
-  br
-  div(id="target") Clap for me
-  
-  a(href="/zodiac") Zodiac Page link
-  br
-  a(href="/addmods") Addmods Page link
-  br
-  a(href="/selector") Selector Page link
-  script.
-    var clap_count=0;
-    function moreClaps(){
-      clap_count =clap_count+2;
-      console.log("moreClaps method implemented");
-      document.getElementById("target").innerHTML = `Clap ${clap_count} times.`;
-    }
-    
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/zodiacs") Take me to zodiacs
+    br
+    a(href="/logout") Logout

@@ -3,18 +3,19 @@ extends layout
 block content
   h1= title
   - let zodiacs = results
-   div(class = "container-fluid")
+  br
+  p Click here to add new item to the collection
+    button(class="btn btn-success m-2" onclick="dispatch('/zodiacs/create')") Create
+    div(class = "container-fluid")
     div(class = "row m-1")
      each zodiac in zodiacs  
       - let destination = `dispatch(\"/zodiacs/update?id=${zodiac._id}\")`
-      //- let destination1 = `dispatch(\"/Season/create\")`
-      //- let destination2 = `dispatch(\"/Season/detail?id=${item._id}\")`
-      //- let destination3 = `dispatch(\"/Season/delete?id=${item._id}\")`
+      - let destination1 = `dispatch(\"/zodiacs/detail?id=${zodiac._id}\")`
+      - let destination2 = `dispatch(\"/zodiacs/delete?id=${zodiac._id}\")`
       div(class="row-sm-2", class="m-1") zodiac: #{zodiac.zodiac_name}(#{zodiac.zodiac_meaning}) is #{zodiac.lucky_number}  
-        button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:8px;") Update
-        //-button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:8px;" ) Create
-        //-button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:8px;" ) Detail
-        //-button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:8px;" ) Delete
+        button.btn( class="btn-warning ml-1", onclick= destination, style = "margin:8px;") Update
+        button.btn( class="btn-info ml-1", onclick= destination1, style = "margin:8px;" ) Detail
+        button.btn( class="btn-danger ml-1", onclick= destination2, style = "margin:8px;" ) Delete
   script.
     function buy(zodiac){
         alert(`You purchased item ${zodiac+1}`)
